@@ -78,6 +78,7 @@ function extractClasses($file)
             ':-ms-input-placeholder',
             ':active',
             ':after',
+            ':before',
             ':checked',
             ':focus-within',
             ':focus',
@@ -87,6 +88,7 @@ function extractClasses($file)
         foreach ($stripThese as $strip) {
             $match = str_replace($strip, '', $match);
         }
+        $match = str_replace('\'', '\\\'', $match);
 
         $keepers[] = sprintf('        \'%s\',', $match);
     }
