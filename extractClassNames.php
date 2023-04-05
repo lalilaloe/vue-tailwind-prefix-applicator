@@ -40,19 +40,19 @@ function extractClasses($file)
         $match = stripslashes($match);
 
         $excludeThesePrefixes = [
-            '.sm:',
-            '.md:',
-            '.lg:',
-            '.xl:',
-            '.32xl:',
+            // '.sm:',
+            // '.md:',
+            // '.lg:',
+            // '.xl:',
+            // '.32xl:',
 
-            '.active:',
-            '.focus:',
-            '.focus-within:',
-            '.hover:',
+            // '.active:',
+            // '.focus:',
+            // '.focus-within:',
+            // '.hover:',
 
-            '.group:hover',
-            '.group:focus',
+            // '.group:hover',
+            // '.group:focus',
         ];
 
         if (substr($match, 0, 1) !== '.') {
@@ -112,5 +112,10 @@ $file = 'export default {
   },
 };
 ';
+
+const CR = "\r";
+const LF = "\n";
+const CRLF = "\r\n";
+$file = \str_replace(CRLF, LF, $file);
 
 file_put_contents('src/views/tailwind-classes.js', $file);
