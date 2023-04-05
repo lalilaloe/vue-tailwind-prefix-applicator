@@ -5007,6 +5007,7 @@ export default {
         'whitespace-pre',
         'whitespace-pre-line',
         'whitespace-pre-wrap',
+        'your-custom-class',
         'z-0',
         'z-10',
         'z-20',

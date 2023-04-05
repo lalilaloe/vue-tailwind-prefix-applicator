@@ -3,9 +3,14 @@
 // Get latest versions of these two files from
 // https://unpkg.com/tailwindcss@%5E2.0/dist/tailwind.css
 // https://cdn.jsdelivr.net/npm/@tailwindcss/ui@latest/dist/tailwind-ui.css
+$customFile = "";
 
 $classes['tailwind.css'] = extractClasses(file_get_contents('tailwind.css'));
 $classes['tailwind-ui.css'] = extractClasses(file_get_contents('tailwind-ui.css'));
+if($argc > 1){
+    $customFile = $argv[1];
+    $classes[$customFile] = extractClasses(file_get_contents($customFile));
+}
 
 function extractClasses($file)
 {
@@ -90,7 +95,9 @@ function extractClasses($file)
 }
 
 $keepers = array_merge($classes['tailwind.css'], $classes['tailwind-ui.css']);
-
+if($customFile){    
+    $keepers = array_merge($keepers, $classes[$customFile]);
+}
 sort($keepers);
 
 $file = 'export default {
