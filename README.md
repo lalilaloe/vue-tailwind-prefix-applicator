@@ -17,15 +17,16 @@ yarn run extract custom.css
 ```
 
 ### Advanced
-You can output all possible classes using the (safelist feature)[https://tailwindcss.com/docs/content-configuration#using-regular-expressions] in Tailwind.
+You can output all possible classes using the [safelist feature](https://tailwindcss.com/docs/content-configuration#using-regular-expressions) in Tailwind.
 
-You can also trick it into outputting all classes. This is not recommended as it takes a long time and outputs a large file but suits a real purpose in this case ;).
+You can also trick it into outputting all classes. This is not recommended as it takes a long time and outputs a large file but suits a real purpose in this case ;). 
 ```
   safelist: [
     {
       pattern: /.*/,
     }
   ],
+## More classes == slower browser performance
 ```
 
 
